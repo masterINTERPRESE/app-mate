@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for military-neon aesthetic */
+  --background: #0a0a2a; /* Dark Navy Background */
+  --foreground: #ffffff; /* Main Text Color */
+  --card: #1e1e2f; /* Card Background Color */
+  --card-foreground: #ffffff; /* Card Text Color */
+  --popover: #1e1e2f; /* Popover Background */
+  --popover-foreground: #ffffff; /* Popover Text Color */
+  --primary: #39ff14; /* Neon Green for CTAs */
+  --primary-foreground: #0a0a2a; /* Text on Primary Elements */
+  --secondary: #00bfff; /* Neon Blue for Highlights */
+  --secondary-foreground: #ffffff; /* Text on Secondary Elements */
+  --muted: #f1f5f9; /* Light Text for Muted Elements */
+  --muted-foreground: #0a0a2a; /* Muted Text Color */
+  --accent: #ff073a; /* Neon Red for Alerts or Warnings */
+  --accent-foreground: #ffffff; /* Text on Accent Elements */
+  --destructive: #ff073a; /* Color for Destructive Actions */
+  --destructive-foreground: #ffffff; /* Text on Destructive Elements */
+  --border: #ffffff; /* Border Color for Cards and Inputs */
+  --input: #1e1e2f; /* Input Background Color */
+  --ring: #39ff14; /* Ring Color for focused elements */
+  --chart-1: #00bfff; /* Chart Color 1 */
+  --chart-2: #39ff14; /* Chart Color 2 */
+  --chart-3: #ff073a; /* Chart Color 3 */
+  --chart-4: #ffffff; /* Chart Color 4 */
+  --chart-5: #f1f5f9; /* Chart Color 5 */
+  --radius: 0.5rem; /* Corner rounding for buttons and cards */
+  --sidebar: #1e1e2f; /* Sidebar Background */
+  --sidebar-foreground: #ffffff; /* Sidebar Text Color */
+  --sidebar-primary: #39ff14; /* Primary Sidebar Color */
+  --sidebar-primary-foreground: #0a0a2a; /* Sidebar Primary Text Color */
+  --sidebar-accent: #ff073a; /* Sidebar Accent Color */
+  --sidebar-accent-foreground: #ffffff; /* Sidebar Accent Text Color */
+  --sidebar-border: #ffffff; /* Sidebar Border Color */
+  --sidebar-ring: #00bfff; /* Sidebar Ring Color */
+}
+
+.dark {
+  /* Dark mode uses same military-neon theme */
+  --background: #0a0a2a;
+  --foreground: #ffffff;
+  --card: #1e1e2f;
+  --card-foreground: #ffffff;
+  --popover: #1e1e2f;
+  --popover-foreground: #ffffff;
+  --primary: #39ff14;
+  --primary-foreground: #0a0a2a;
+  --secondary: #00bfff;
+  --secondary-foreground: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #0a0a2a;
+  --accent: #ff073a;
+  --accent-foreground: #ffffff;
+  --destructive: #ff073a;
+  --destructive-foreground: #ffffff;
+  --border: #ffffff;
+  --input: #1e1e2f;
+  --ring: #39ff14;
+  --chart-1: #00bfff;
+  --chart-2: #39ff14;
+  --chart-3: #ff073a;
+  --chart-4: #ffffff;
+  --chart-5: #f1f5f9;
+  --sidebar: #1e1e2f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #39ff14;
+  --sidebar-primary-foreground: #0a0a2a;
+  --sidebar-accent: #ff073a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #ffffff;
+  --sidebar-ring: #00bfff;
+}
+
+@theme inline {
+  /* Added Orbitron and Rajdhani font variables */
+  --font-sans: var(--font-rajdhani);
+  --font-mono: var(--font-geist-mono);
+  --font-orbitron: var(--font-orbitron);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added neon glow effects for military aesthetic */
+  .neon-glow {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+
+  .neon-border {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, inset 0 0 5px currentColor;
+  }
+
+  .military-grid {
+    background-image: linear-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57, 255, 20, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
